@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4 text-center">
+      <div class="card m-4">
+        <div class="card-body p-2">
+          <div class="displayTable">
+            <div class="displayTableCell">
+              <div class="authBlock">
+                <h5>Sign Up</h5>
+                <div class="formGroup p-1">
+                  <input
+                    type="email"
+                    class="formControl"
+                    placeholder="Email Address"
+                    #userEmail
+                    required
+                  />
+                </div>
+                <div class="formGroup p-1">
+                  <input
+                    type="password"
+                    class="formControl"
+                    placeholder="Password"
+                    #userPwd
+                    required
+                  />
+                </div>
+                <div class="formGroup p-1">
+                  <input
+                    type="button"
+                    class="btn btnPrimary"
+                    value="Sign Up"
+                    (click)="authService.SignUp(userEmail.value, userPwd.value)"
+                  />
+                </div>
+                <div class="formGroup p-1">
+                  <span class="or"><span class="orInner">Or</span></span>
+                </div>
+                <!-- Continue with Google -->
+                <div class="formGroup p-1">
+                  <button
+                    type="button"
+                    class="btn googleBtn"
+                    (click)="authService.GoogleAuth()"
+                  >
+                    <i class="fab fa-google-plus-g"></i>
+                    Continue with <img src="assets/google.jpg" style="height:22px;" />
+                  </button>
+                </div>
+              </div>
+              <div class="redirectToLogin">
+                <span
+                  >Already have an account?
+                  <span class="redirect" routerLink="/sign-in">Log In</span></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4"></div>
+  </div>
+</div>
+
+
