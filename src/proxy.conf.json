@@ -1,0 +1,6 @@
+{
+    "/flightInfoChallenge/*": {
+        "target": "https://us-central1-crm-sdk.cloudfunctions.net/flightInfoChallenge/",
+        "secure": false,
+        "logLevel": "debug"
+    }
