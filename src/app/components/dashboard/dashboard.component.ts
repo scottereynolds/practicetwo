@@ -18,9 +18,30 @@ export class DashboardComponent implements OnInit {
       numOfGuests: value.numOfGuests,
       comments: value.comments,
     }
+    const alertPlaceholder = document.getElementById('alert')
+    const appendAlert = (message: any, type: any) => {
+      const wrapper = document.createElement('div');
+      wrapper.innerHTML = [
+        `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+        `   <div>${message}</div>`,
+        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+        '</div>'
+      ].join('');
+      if (alertPlaceholder) {
+        alertPlaceholder.append(wrapper);
+      }
+    }
     this.flightinfopayloadService.postData(flightinfopayload)
-      .subscribe(response => {
-        console.log(response)
-    })
+      .subscribe(
+        result => {
+          // Handle result
+          console.log(result);
+          appendAlert('Flight information has been saved.', 'success');
+        },
+        error => {
+          console.log(error);
+          appendAlert('Error saving flight information.', 'danger');
+        },
+      );
   }
 }

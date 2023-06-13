@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-1">
+    <div class="col-md-1">
       <ul class="nav flex-column">
         <li class="nav-item">
           <a class="nav-link active">
@@ -14,52 +14,68 @@
         </li>
       </ul>
     </div>
-    <div class="col-11">
+    <div class="col-md-11">
       <div class="container-fluid">
         <div class="row" *ngIf="authService.userData as user">
-          <div class="col-4">
-            <h5>Flight Information Submission Form</h5>
-            <p>Enter your informaiton below to save your flight info</p>
-            <hr>
+          <div class="col-md-6 py-4">
+          </div>
+          <div class="col-md-6 pt-4 text-end">
+            <p>Hello <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
             <div class="media">
               <div class="media-body">
-                <p>Hello <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></p>
-                <div class="card">
-                  <div class="card-header">Flight Info</div>
+                <div class="card shadow">
+                  <div class="card-header text-start fw-bold">Flight Information</div>
                   <div class="card-body p-2">
-                    <form #flightinfopayloadForm="ngForm" (ngSubmit)="submitData(flightinfopayloadForm.value)">
-                      <div class="main">
-                        <div class="input-fields p-1">
-                          <input name="airline" ngModel placeholder="Airline" id="airline" type="text" class="form-control" required />
-                        </div>
-                        <div class="input-fields p-1">
-                          <input name="arrivalDate" ngModel placeholder="Arrival Date" id="arrivalDate" type="date" class="form-control" required />
-                        </div>
-                        <div class="input-fields p-1">
-                          <input name="arrivalTime" ngModel placeholder="Arrival Time" id="arrivalTime" type="time" class="form-control" required />
-                        </div>
-                        <div class="input-fields p-1">
-                          <input name="flightNumber" ngModel placeholder="Flight Number" id="flightNumber" type="text" class="form-control" required />
-                        </div>
-                        <div class="input-fields p-1">
-                          <input name="numOfGuests" ngModel placeholder="Number of Guests" id="numOfGuests" type="number" class="form-control" required />
-                        </div>
-                        <div class="input-fields p-1">
-                          <textarea name="comments" ngModel placeholder="Comments" id="comments" type="text" class="form-control"></textarea>
-                        </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="alert d-none"></div>
+                        <p class="ps-2">Enter your informaiton below to save your flight details.</p>
                       </div>
-                      <div class="text-end">
-                        <div class="p-1">
-                          <button class="btn btn-primary">Submit Data</button>
-                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <form #flightinfopayloadForm="ngForm" (ngSubmit)="submitData(flightinfopayloadForm.value)">
+                          <div class="main">
+                            <div class="input-fields p-1">
+                              <input name="airline" ngModel placeholder="Airline" id="airline" type="text" class="form-control" required />
+                            </div>
+                            <div class="input-fields p-1">
+                              <label for="arrivalTime" class="ps-2">Arrival Date</label>
+                              <input name="arrivalDate" ngModel placeholder="Arrival Date" id="arrivalDate" type="date" class="form-control" required />
+                            </div>
+                            <div class="input-fields p-1">
+                              <label for="arrivalTime" class="ps-2">Arrival Time</label>
+                              <input name="arrivalTime" ngModel placeholder="Arrival Time" id="arrivalTime" type="time" class="form-control" required />
+                            </div>
+                            <div class="input-fields p-1">
+                              <input name="flightNumber" ngModel placeholder="Flight Number" id="flightNumber" type="text" class="form-control" required />
+                            </div>
+                            <div class="input-fields p-1">
+                              <input name="numOfGuests" ngModel placeholder="Number of Guests" id="numOfGuests" type="number" class="form-control" required />
+                            </div>
+                            <div class="input-fields p-1">
+                              <textarea name="comments" ngModel placeholder="Comments" id="comments" type="text" class="form-control"></textarea>
+                            </div>
+                          </div>
+                          <div class="text-end">
+                            <div class="p-1">
+                              <button class="btn btn-primary">Submit Data</button>
+                            </div>
+                          </div>
+                        </form>
                       </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-8"></div>
+          <div class="col-md-4"></div>
         </div>
       </div>
     </div>

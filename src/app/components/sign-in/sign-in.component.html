@@ -1,28 +1,27 @@
 <div class="container">
   <div class="row">
-    <div class="col-4"></div>
-    <div class="col-4">
-      <div class="card m-4">
-          <div class="card-body p-2">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="card m-4 shadow">
+          <div class="card-body py-4">
             <div class="displayTable">
               <div class="displayTableCell text-center">
                 <div class="authBlock">
                   <h5>Sign In</h5>
                   <div class="formGroup p-1">
-                    <input type="text" class="formControl" placeholder="Username" #userName required>
+                    <input type="text" class="form-control" placeholder="Username" #userName required>
                   </div>
                   <div class="formGroup p-1">
-                    <input type="password" class="formControl" placeholder="Password" #userPassword required>
+                    <input type="password" class="form-control" placeholder="Password" #userPassword required>
                   </div>
                   <!-- Calling SignIn Api from AuthService -->
-                  <div class="formGroup p-1">
-                    <input type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">
+                  <div class="formGroup pt-3">
+                    <input type="button" class="btn btn-primary" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">
                   </div>
-                  <div class="formGroup p-1">
+                  <div class="formGroup pt-1">
                     <span class="or"><span class="orInner">Or</span></span>
                   </div>
-                  <!-- Calling GoogleAuth Api from AuthService -->
-                  <div class="formGroup p-1">
+                  <div class="formGroup pb-1">
                     <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
                       <img src="assets/btn_google_signin_light_normal_web.png" />
                     </button>
@@ -39,7 +38,7 @@
           </div>
       </div>
     </div>
-    <div class="col-4"></div>
+    <div class="col-md-4"></div>
   </div>
 </div>
 
